@@ -14,26 +14,39 @@ public class main {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
-        final int[] studentNumbers = {20032, 3012, 25342, 31432};
-        final String[] courseAcronyms = {"AD", "WEB-FE", "WEB-BE"};
-        final int[][] studentGrade = {
-            {15, 18, 17},
-            {18, 10, 11},
-            {11, 13, 15},
-            {10, 19, 16}
+
+        final int[][] matrix = {
+            {15, 18,20},
+            {18, 10, 15},
+            {11, 13,20}
         };
-        
-        
-        for (int i = 0; i < studentGrade.length; i++) {
-            System.out.println("O aluno " + studentNumbers[i]);
-            for (int j = 0; j < courseAcronyms.length; j++) {
-                System.out.println("   -->" + courseAcronyms[j] + ": " + studentGrade[i][j]);
-                
-            }
-        }
-        
-        
+        final int[][] identity= {
+            {1,0,0},
+            {0,1,0},
+            {0,0,1}
+        };
+        String a = "+";
+       Aula4.show(matrix);
+       System.out.println(" ");
+       boolean exB = Aula4.isMatrix(matrix);
+       System.out.println(exB);
+       boolean exC = Aula4.isIdentity(identity);
+       System.out.println(exC);
+       Aula4.multiplyBy(matrix, 3);
+       System.out.println("");
+       boolean exE = Aula4.areCompatibleforSum(matrix, identity);
+       System.out.println(exE);
+       Aula4.sumOf(matrix, matrix);
+        System.out.println("");
+       Aula4.drawElement(a);
+       Aula4.drawNewLine();
+       Aula4.drawHorizontalSegmentWith(a,5);
+       Aula4.drawNewLine();
+       Aula4.drawFilledRectangleWith(a, 7, 5);
+       Aula4.drawNewLine();
+       Aula4.drawEmptyRectangleWith(a, 7, 5);
     }
 
 }
