@@ -28,24 +28,31 @@ public class main {
             {0,0,1}
         };
         String a = "+";
+        System.out.print("Show bi-array");
        Aula4.show(matrix);
        System.out.println(" ");
        boolean exB = Aula4.isMatrix(matrix);
-       System.out.println(exB);
+       System.out.println("Is matrix: "+exB);
        boolean exC = Aula4.isIdentity(identity);
-       System.out.println(exC);
+       System.out.println("Is identity: "+exC);
+        System.out.print("MultiplyBy:");
        Aula4.multiplyBy(matrix, 3);
        System.out.println("");
        boolean exE = Aula4.areCompatibleforSum(matrix, identity);
-       System.out.println(exE);
+       System.out.println("Are compatible for sum:" +exE);
+        System.out.print("Soma de matrix:");
        Aula4.sumOf(matrix, matrix);
         System.out.println("");
+        System.out.print("Draw element: ");
        Aula4.drawElement(a);
        Aula4.drawNewLine();
+       System.out.print("Draw line: ");
        Aula4.drawHorizontalSegmentWith(a,5);
        Aula4.drawNewLine();
+       System.out.print("Draw filled rectangle: ");
        Aula4.drawFilledRectangleWith(a, 7, 5);
        Aula4.drawNewLine();
+       System.out.print("Draw empty rectangle: ");
        Aula4.drawEmptyRectangleWith(a, 7, 5);
     }
 

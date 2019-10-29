@@ -92,7 +92,7 @@ public class Aula4 {
         System.out.print(a);
     }
     public static void drawNewLine(){
-        System.out.println(" ");
+        System.out.println("");
     }
     public static void drawHorizontalSegmentWith(String a, int L){
         for(int i=0;i<=L;i++){
@@ -111,13 +111,13 @@ public class Aula4 {
         drawNewLine();
         drawHorizontalSegmentWith(a,L);
         drawNewLine();
-       for(int i=0;i<=A;i++){
+       for(int i=0;i<A;i++){
            drawElement(a);
-           for(int j=0;j<=L;j++){
+           for(int j=1;j<=L;j++){
                if(j==L){  
                drawElement(a);
                }else{
-                   System.out.print(" ");
+                   System.out.print("");
                }
            }
           drawNewLine();
