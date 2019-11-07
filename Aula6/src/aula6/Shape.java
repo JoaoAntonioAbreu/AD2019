@@ -13,7 +13,6 @@ public abstract class Shape {
     private Point position;
 
     public Shape(Point position) {
-        super();
         this.position = position;
     }
 
@@ -25,10 +24,6 @@ public abstract class Shape {
         return position;
     }
     
-    public double getArea(){
-        return position.getX()*position.getY();
-    }
-    public double getPerimeter(){
-        return position.getX()+position.getX()+position.getY()+position.getY();
-    }
+    public abstract double getArea();
+    public abstract double getPerimeter();
 }

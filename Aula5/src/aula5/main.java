@@ -19,6 +19,7 @@ public class main {
         Point a = new Point();
         Point b = new Point();
         Point c = new Point();
+        
         ex1.setX(2.5);
         System.out.println(ex1.getX());
         ex1.setY(8.5);
