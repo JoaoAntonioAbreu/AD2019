@@ -59,7 +59,7 @@ public class Game {
 
                 break;
             case INSPECT:
-                System.out.println("caralho");
+                System.out.println("caralhoTOS");
                 System.out.println(player.getArmy().size());
                 for (FightingForce fightingforce : player.getArmy()) {
                             System.out.println(fightingforce.getClass());
