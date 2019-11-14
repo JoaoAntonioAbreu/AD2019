@@ -5,22 +5,28 @@
  */
 package trabalho_grupo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Turma A
  */
-public abstract class FightingForce {
-    
+public abstract class FightingForce{
+
     private int attack;
     private int defense;
-   
-    
+
+ 
+
     public FightingForce(int attack, int defense) {
         this.attack = attack;
         this.defense = defense;
     }
+
     
-   
-    
-    
+ 
+    public abstract int getAttackPower();
+
+    public abstract int getDefensePower();
+
 }

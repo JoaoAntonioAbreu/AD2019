@@ -13,20 +13,19 @@ import java.util.Scanner;
  */
 public class main {
 
-  
     public static void main(String[] args) {
-       for (int i = 0; i < Game.Command.values().length; i++) {
+     
+
+        for (int i = 0; i < Game.Command.values().length; i++) {
             System.out.println(Game.Command.values()[i]);
         }
-        
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduza uma comando: ");
-        String com = scanner.nextLine();
+        String com = scanner.nextLine().toUpperCase();
+
         Game.optionSwitch(com);
-        
-        
-      
-    
+
     }
-    
+
 }
