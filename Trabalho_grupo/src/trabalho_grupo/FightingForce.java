@@ -5,7 +5,6 @@
  */
 package trabalho_grupo;
 
-import java.util.ArrayList;
 
 /**
  *
@@ -21,6 +20,14 @@ public abstract class FightingForce{
     public FightingForce(int attack, int defense) {
         this.attack = attack;
         this.defense = defense;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public int getDefense() {
+        return defense;
     }
 
     

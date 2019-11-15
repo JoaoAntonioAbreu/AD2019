@@ -27,7 +27,5 @@ public class Army {
     public void add(FightingForce unit) {
         this.army.add(unit);
     }
-    
-
-     
+   
 }
