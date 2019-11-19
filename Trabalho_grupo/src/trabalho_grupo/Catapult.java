@@ -5,13 +5,12 @@
  */
 package trabalho_grupo;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Turma A
  */
-public class Catapult extends FightingForce{
+public class Catapult extends FightingForce {
+
     private int nCatapultsAttack;
     private int nCataputsDefense;
 
@@ -20,32 +19,64 @@ public class Catapult extends FightingForce{
         this.nCatapultsAttack = nCatapultsAttack;
         this.nCataputsDefense = nCataputsDefense;
     }
-  
 
     @Override
     public int getAttackPower() {
         int AttackPower = 0;
         for (int i = 0; i < nCatapultsAttack; i++) {
-            AttackPower+= super.getAttack();
+            AttackPower += super.getAttack();
         }
         return AttackPower;
-       
+
+    }
+
+   
+
+    @Override
+    public int onDefense(int damage) {
+        int lost = 0;
+        int teste = damage;
+        for (int i = 0; i < nCataputsDefense;) {
+            if (teste >= super.getDefense()) {
+                teste = teste - super.getDefense();
+                lost++;
+            }
+            i++;
+        }
+        if (lost >= 1) {
+            this.nCataputsDefense = nCataputsDefense - lost;
+            System.out.println("Lost: " + lost + " catapults");
+        }
+        
+        return teste;
     }
 
     @Override
+    public int onAttack() {
+        int AttackPower = 0;
+        int damage;
+        int lost = 0;
+        for (int i = 0; i < nCatapultsAttack; i++) {
+            damage = (int) (super.getAttack() * Math.round((Math.random() * ((1 - 0)))));
+            if (damage == 0) {
+                lost++;
+            } else {
+                AttackPower += damage;
+            }
+
+        }
+        if (lost >= 1) {
+            System.out.println(lost + " catapultas juntaram-se a revolução dos cravos");
+        }
+        return AttackPower;
+    }
+
+     @Override
     public int getDefensePower() {
-       int DefensePower = 0;
+        int DefensePower = 0;
         for (int i = 0; i < nCataputsDefense; i++) {
-            DefensePower+= super.getDefense();
+            DefensePower += super.getDefense();
         }
         return DefensePower;
     }
-   
-    
-
-    
-    
-    
-        
-           
 }

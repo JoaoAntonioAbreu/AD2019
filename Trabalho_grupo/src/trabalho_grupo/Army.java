@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class Army {
 
     public ArrayList<FightingForce> army;
+    public ArrayList<FightingForce> pcarmy;
 
     public Army() {
         army = new ArrayList<FightingForce>();
-        
     }
 
     public ArrayList<FightingForce> getArmy() {
@@ -27,5 +27,5 @@ public class Army {
     public void add(FightingForce unit) {
         this.army.add(unit);
     }
-   
+
 }

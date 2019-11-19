@@ -23,7 +23,7 @@ public class main {
 
         System.out.println("Introduza uma comando: ");
         Game.optionSwitch();
-        
+
     }
 
 }

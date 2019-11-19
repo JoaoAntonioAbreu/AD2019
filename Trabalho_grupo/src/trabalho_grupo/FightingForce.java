@@ -5,17 +5,14 @@
  */
 package trabalho_grupo;
 
-
 /**
  *
  * @author Turma A
  */
-public abstract class FightingForce{
+public abstract class FightingForce {
 
     private int attack;
     private int defense;
-
- 
 
     public FightingForce(int attack, int defense) {
         this.attack = attack;
@@ -30,10 +27,12 @@ public abstract class FightingForce{
         return defense;
     }
 
-    
- 
+    public abstract int onDefense(int damage);
+
     public abstract int getAttackPower();
 
     public abstract int getDefensePower();
+
+    public abstract int onAttack();
 
 }

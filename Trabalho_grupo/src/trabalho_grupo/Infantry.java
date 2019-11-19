@@ -38,4 +38,43 @@ public class Infantry extends FightingForce {
         return DefensePower;
     }
 
+    @Override
+    public int onDefense(int damage) {
+        int lost = 0;
+        int teste = damage;
+        for (int i = 0; i < nInfantryDefense;) {
+            if (teste >= super.getDefense()) {
+                teste = teste - super.getDefense();
+                lost++;
+            }
+            i++;
+        }
+        if (lost >= 1) {
+            this.nInfantryDefense -= lost;
+            System.out.println("Lost: " + lost + " infantry");
+        }
+        return teste;
+    }
+
+    @Override
+    public int onAttack() {
+        int AttackPower = 0;
+        int damage;
+        int lost = 0;
+
+        for (int i = 0; i < nInfantryAttack; i++) {
+            damage = (int) (super.getAttack() * Math.round((Math.random() * ((1 - 0)))));
+            if (damage == 0) {
+                lost++;
+            } else {
+                AttackPower += damage;
+            }
+
+        }
+        if (lost >= 1) {
+            System.out.println(lost + " infantaria juntaram-se a revolução dos cravos");
+        }
+        return AttackPower;
+    }
+
 }
