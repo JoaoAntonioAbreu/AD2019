@@ -1,0 +1,17 @@
+//az extension add --name azure-cli-iot-ext
+//az iot hub device-identity create --hub-name Smart-Termo-IoT --device-id MyJavaDevice
+
+//az iot hub device-identity show-connection-string --hub-name Smart-Termo-IoT --device-id MyJavaDevice --output table
+=>"HostName=Smart-Termo-IoT.azure-devices.net;DeviceId=MyJavaDevice;SharedAccessKey=/Hu0m+q2O71ChqhbZ+7vcYNsUfvUjYRQTTCc7FGFaH4="
+
+//az iot hub show --query properties.eventHubEndpoints.events.endpoint --name Smart-Termo-IoT
+=>"sb://ihsuprodamres007dednamespace.servicebus.windows.net/"
+
+//az iot hub show --query properties.eventHubEndpoints.events.path --name Smart-Termo-IoT
+=>"iothub-ehub-smart-term-2569704-2251f87a86"
+
+//az iot hub policy show --name service --query primaryKey --hub-name Smart-Termo-IoT
+=>"0y4LfyXilo7aDlxWRcnsjGA8RO0V9y7vwV+Yu6t45U8="
+
+//az iot hub show-connection-string --hub-name Smart-Termo-IoT --policy-name service
+=>"connectionString": "HostName=Smart-Termo-IoT.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=0y4LfyXilo7aDlxWRcnsjGA8RO0V9y7vwV+Yu6t45U8="

@@ -41,10 +41,10 @@ public class Infantry extends FightingForce {
     @Override
     public int onDefense(int damage) {
         int lost = 0;
-        int teste = damage;
+        int total = damage;
         for (int i = 0; i < nInfantryDefense;) {
-            if (teste >= super.getDefense()) {
-                teste = teste - super.getDefense();
+            if (total >= super.getDefense()) {
+                total = total - super.getDefense();
                 lost++;
             }
             i++;
@@ -53,7 +53,7 @@ public class Infantry extends FightingForce {
             this.nInfantryDefense -= lost;
             System.out.println("Lost: " + lost + " infantry");
         }
-        return teste;
+        return total;
     }
 
     @Override

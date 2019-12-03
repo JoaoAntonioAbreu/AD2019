@@ -41,10 +41,10 @@ public class Cavalry extends FightingForce {
     @Override
     public int onDefense(int damage) {
         int lost = 0;
-        int teste = damage;
+        int total = damage;
         for (int i = 0; i < nCavalryDefense;) {
-            if (teste >= super.getDefense()) {
-                teste = teste - super.getDefense();
+            if (total >= super.getDefense()) {
+                total = total - super.getDefense();
                 lost++;
             }
             i++;
@@ -53,7 +53,7 @@ public class Cavalry extends FightingForce {
             this.nCavalryDefense = nCavalryDefense - lost;
             System.out.println("Lost: " + lost + " cavalry");
         }
-        return teste;
+        return total;
     }
 
     @Override
