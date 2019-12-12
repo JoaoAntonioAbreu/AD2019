@@ -136,6 +136,7 @@ public class Device extends javax.swing.JFrame {
             System.out.println("Finished.");
         }
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

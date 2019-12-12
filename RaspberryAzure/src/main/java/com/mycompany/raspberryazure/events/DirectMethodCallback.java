@@ -19,13 +19,14 @@ public class DirectMethodCallback implements DeviceMethodCallback{
   private static final int METHOD_NOT_DEFINED = 404;
   private static final int INVALID_PARAMETER = 400;
 
-  private static int telemetryInterval = 1000;
-  
-   private void setTelemetryInterval(int distance)
-    {
-      System.out.println("Direct method # Setting telemetry interval (seconds): " + distance);
-      telemetryInterval = distance * 1000;
+  private static int minimumDistance = 0;
+
+    public static void setMinimumDistance(int minimumDistance) {
+      System.out.println("Direct method # Setting minumum distance: " + minimumDistance);
+      minimumDistance = minimumDistance;
     }
+  
+   
 
     @Override
     public DeviceMethodData call(String methodName, Object methodData, Object context)
@@ -36,12 +37,12 @@ public class DirectMethodCallback implements DeviceMethodCallback{
       {
         case "SetTelemetryInterval" :
         {
-          int interval;
+          int distance;
           try {
             int status = METHOD_SUCCESS;
-            interval = Integer.parseInt(minDistance);
+            distance = Integer.parseInt(minDistance);
             System.out.println(minDistance);
-            setTelemetryInterval(interval);
+            setMinimumDistance(distance);
             deviceMethodData = new DeviceMethodData(status, "Executed direct method " + methodName);
           } catch (NumberFormatException e) {
             int status = INVALID_PARAMETER;
