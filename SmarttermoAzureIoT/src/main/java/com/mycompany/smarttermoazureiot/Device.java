@@ -36,6 +36,8 @@ public class Device extends javax.swing.JFrame {
 // Register to receive direct method calls.
     client.subscribeToDeviceMethod(new DirectMethodCallback(), null, new DirectMethodStatusCallback(), null);
         simulateDevice();
+        
+       
     }
 
     /**

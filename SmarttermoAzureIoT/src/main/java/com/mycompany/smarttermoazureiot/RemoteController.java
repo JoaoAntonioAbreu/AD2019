@@ -22,7 +22,7 @@ public class RemoteController extends javax.swing.JFrame {
     public static final String deviceId = "MyJavaDevice";
 
     // Name of direct method and payload.
-    public static final String methodName = "SetTelemetryInterval";
+    public static final String methodName = "setMinimumDistance";
 
     public static final Long responseTimeout = TimeUnit.SECONDS.toSeconds(30);
     public static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
@@ -101,10 +101,10 @@ public class RemoteController extends javax.swing.JFrame {
             // Create a DeviceMethod instance to call a direct method.
             DeviceMethod methodClient = DeviceMethod.createFromConnectionString(iotHubConnectionString);
             
-            int payload = Integer.parseInt(jTextField1.getText());
+            int minimumDistance = Integer.parseInt(jTextField1.getText());
 
             // Call the direct method.
-            MethodResult result = methodClient.invoke(deviceId, methodName, responseTimeout, connectTimeout, payload);
+            MethodResult result = methodClient.invoke(deviceId, methodName, responseTimeout, connectTimeout, minimumDistance);
 
             if (result == null) {
                 throw new IOException("Direct method invoke returns null");
