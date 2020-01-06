@@ -27,11 +27,11 @@ public class RemoteController extends javax.swing.JFrame {
     public static final String deviceId = "MyJavaDevice";
 
     // Name of direct method and payload.
-    public static final String methodName = "SetTelemetryInterval";
-
+    public static final String methodName = "setMinimumDistance";
+    public static final String methodName2 = "setAlarmeState";
     public static final Long responseTimeout = TimeUnit.SECONDS.toSeconds(30);
     public static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
-    
+    public static boolean state = false;
     
     public RemoteController() {
         initComponents();
@@ -126,6 +126,11 @@ public class RemoteController extends javax.swing.JFrame {
         jLabel2.setText("Alarme");
 
         jButtonActivate.setText("Activar");
+        jButtonActivate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActivateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -179,13 +184,13 @@ public class RemoteController extends javax.swing.JFrame {
 
     private void jButtonMinDistanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinDistanceActionPerformed
          try {
-            System.out.println("Calling direct method...");
+            System.out.println("Comunicando com o Dispositivo \n");
 
             // Create a DeviceMethod instance to call a direct method.
             DeviceMethod methodClient = DeviceMethod.createFromConnectionString(iotHubConnectionString);
             
             int minimumDistance = jSlider1.getValue();
-
+             System.out.println(minimumDistance);
             // Call the direct method.
             MethodResult result = methodClient.invoke(deviceId, methodName, responseTimeout, connectTimeout, minimumDistance);
 
@@ -194,6 +199,8 @@ public class RemoteController extends javax.swing.JFrame {
             }
 
             // Show the acknowledgement from the device.
+            jTextArea1.append("Alterando a distancia minima para: "+jSlider1.getValue()+"\n");
+            jTextArea1.append("Distancia minima alterada com sucesso \n");
             System.out.println("Status: " + result.getStatus());
             System.out.println("Response: " + result.getPayload());
         } catch (IotHubException e) {
@@ -205,6 +212,47 @@ public class RemoteController extends javax.swing.JFrame {
         }
         System.out.println("Done!");
     }//GEN-LAST:event_jButtonMinDistanceActionPerformed
+
+    private void jButtonActivateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActivateActionPerformed
+          try {
+            System.out.println("Comunicando com o Dispositivo... \n");
+
+            // Create a DeviceMethod instance to call a direct method.
+            DeviceMethod methodClient = DeviceMethod.createFromConnectionString(iotHubConnectionString);
+           if(jButtonActivate.getText()=="Activar"){ 
+           jButtonActivate.setText("Desactivar");
+           state = true;
+           
+            jTextArea1.append("Activando o alarme... \n");
+           
+             jTextArea1.append("Alarme Activado com sucesso \n");
+           }else{
+               jButtonActivate.setText("Activar");
+               state = false;
+                jTextArea1.append("Desactivando o alarme... \n");
+           
+             jTextArea1.append("Alarme Desactivado com sucesso \n");
+           }
+              System.out.println(state);
+            // Call the direct method.
+            MethodResult result = methodClient.invoke(deviceId, methodName2, responseTimeout, connectTimeout, state);
+
+            if (result == null) {
+                throw new IOException("Direct method invoke returns null");
+            }
+
+            // Show the acknowledgement from the device.
+           
+            
+        } catch (IotHubException e) {
+            System.out.println("IotHubException calling direct method:");
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println("IOException calling direct method:");
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Done!");
+    }//GEN-LAST:event_jButtonActivateActionPerformed
 
     /**
      * @param args the command line arguments
